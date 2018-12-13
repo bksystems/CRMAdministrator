@@ -1,0 +1,20 @@
+2018-11-29 01:20:35 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'genesis_app_db.status_employees' doesn't exist in D:\xampp\htdocs\Genesis\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 131
+Stack Trace:
+#0 D:\xampp\htdocs\Genesis\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'status_employee...', Array, Object(Cake\Database\Schema\TableSchema))
+#1 D:\xampp\htdocs\Genesis\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('status_employee...', Array)
+#2 D:\xampp\htdocs\Genesis\vendor\cakephp\cakephp\src\ORM\Table.php(548): Cake\Database\Schema\CachedCollection->describe('status_employee...')
+#3 D:\xampp\htdocs\Genesis\vendor\cakephp\cakephp\src\ORM\Table.php(673): Cake\ORM\Table->getSchema()
+#4 D:\xampp\htdocs\Genesis\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#5 D:\xampp\htdocs\Genesis\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 D:\xampp\htdocs\Genesis\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'status_employee...', 'StatusEmployees')
+#7 D:\xampp\htdocs\Genesis\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('StatusEmployees')
+#8 D:\xampp\htdocs\Genesis\vendor\cakephp\bake\src\Shell\BakeShell.php(273): Bake\Shell\Task\ModelTask->main('StatusEmployees')
+#9 D:\xampp\htdocs\Genesis\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('StatusEmployees', 0)
+#10 D:\xampp\htdocs\Genesis\vendor\cakephp\bake\src\Shell\BakeShell.php(274): Cake\Collection\Collection->each(Object(Closure))
+#11 D:\xampp\htdocs\Genesis\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('status_employee...')
+#12 D:\xampp\htdocs\Genesis\vendor\cakephp\cakephp\src\Console\CommandRunner.php(342): Cake\Console\Shell->runCommand(Array, true)
+#13 D:\xampp\htdocs\Genesis\vendor\cakephp\cakephp\src\Console\CommandRunner.php(164): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#14 D:\xampp\htdocs\Genesis\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#15 {main}
+
+
