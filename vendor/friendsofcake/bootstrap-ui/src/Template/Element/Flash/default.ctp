@@ -1,19 +1,13 @@
-
 <?php
-    if (!isset($params['escape']) || $params['escape'] !== false) {
-        $message = h($message);
-        $element = h($element);
+$class = array_unique((array)$params['class']);
+$message = (isset($params['escape']) && $params['escape'] === false) ? $message : h($message);
 
-    }
+if (in_array('alert-dismissible', $class)) {
+    $button = <<<BUTTON
+<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+BUTTON;
+    $message = $button . $message;
+}
 
+echo $this->Html->div($class, $message, $params['attributes']);
 ?>
-<div class='alert alert-danger alert-dismissible fade show' role="alert">
-  <?= $message . ' '. $element ?>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-
-<script>
-    $('.alert').alert();
-</script>
