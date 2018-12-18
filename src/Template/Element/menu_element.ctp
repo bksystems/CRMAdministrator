@@ -11,10 +11,12 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administración</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <?= $this->Html->link(__('Direcciones'), ['action' => 'index',  'controller' => 'organization_directions'],['class' => 'dropdown-item small']) ?>
+          <?= $this->Html->link(__('Organizaciones'), ['action' => 'index',  'controller' => 'organizations'],['class' => 'dropdown-item small']) ?>
+          <?= $this->Html->link(__('Tipos de organización'), ['action' => 'index',  'controller' => 'type_organizations'],['class' => 'dropdown-item small']) ?>
+          <!--<?= $this->Html->link(__('Direcciones'), ['action' => 'index',  'controller' => 'organization_directions'],['class' => 'dropdown-item small']) ?>
           <?= $this->Html->link(__('Subdirecciones'), ['action' => 'index',  'controller' => 'organization_subdirections'],['class' => 'dropdown-item small']) ?>
           <?= $this->Html->link(__('Oficinas'), ['action' => 'index',  'controller' => 'organization_offices'],['class' => 'dropdown-item small']) ?>
-          <?= $this->Html->link(__('Tipos de oficina'), ['action' => 'index',  'controller' => 'organization_types'],['class' => 'dropdown-item small']) ?>
+          <?= $this->Html->link(__('Tipos de oficina'), ['action' => 'index',  'controller' => 'organization_types'],['class' => 'dropdown-item small']) ?>-->
           <div class="dropdown-divider">a</div>
           <?= $this->Html->link(__('Empleados'), ['action' => 'index',  'controller' => 'employees'],['class' => 'dropdown-item small']) ?>
           <?= $this->Html->link(__('Posiciones de empleado'), ['action' => 'index',  'controller' => 'employee_positions'],['class' => 'dropdown-item small']) ?>

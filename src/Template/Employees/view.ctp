@@ -11,8 +11,8 @@
         <li><?= $this->Form->postLink(__('Delete Employee'), ['action' => 'delete', $employee->id], ['confirm' => __('Are you sure you want to delete # {0}?', $employee->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Employees'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Employee'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Organization Offices'), ['controller' => 'OrganizationOffices', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Organization Office'), ['controller' => 'OrganizationOffices', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Organizations'), ['controller' => 'Organizations', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Organization'), ['controller' => 'Organizations', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Employee Positions'), ['controller' => 'EmployeePositions', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Employee Position'), ['controller' => 'EmployeePositions', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Status Employees'), ['controller' => 'StatusEmployees', 'action' => 'index']) ?> </li>
@@ -37,8 +37,8 @@
             <td><?= h($employee->names) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Organization Office') ?></th>
-            <td><?= $employee->has('organization_office') ? $this->Html->link($employee->organization_office->name, ['controller' => 'OrganizationOffices', 'action' => 'view', $employee->organization_office->id]) : '' ?></td>
+            <th scope="row"><?= __('Organization') ?></th>
+            <td><?= $employee->has('organization') ? $this->Html->link($employee->organization->name, ['controller' => 'Organizations', 'action' => 'view', $employee->organization->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Employee Position') ?></th>

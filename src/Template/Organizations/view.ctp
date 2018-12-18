@@ -26,11 +26,19 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Type Organization') ?></th>
-            <td><?= $organization->has('type_organization') ? $this->Html->link($organization->type_organization->id, ['controller' => 'TypeOrganizations', 'action' => 'view', $organization->type_organization->id]) : '' ?></td>
+            <td><?= $organization->has('type_organization') ? $this->Html->link($organization->type_organization->type, ['controller' => 'TypeOrganizations', 'action' => 'view', $organization->type_organization->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($organization->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Id Unique') ?></th>
+            <td><?= $this->Number->format($organization->id_unique) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Cost Center') ?></th>
+            <td><?= $this->Number->format($organization->cost_center) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Organization Id') ?></th>
@@ -59,6 +67,8 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Id Unique') ?></th>
+                <th scope="col"><?= __('Cost Center') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Organization Id') ?></th>
                 <th scope="col"><?= __('Type Organization Id') ?></th>
@@ -71,6 +81,8 @@
             <?php foreach ($organization->organizations as $organizations): ?>
             <tr>
                 <td><?= h($organizations->id) ?></td>
+                <td><?= h($organizations->id_unique) ?></td>
+                <td><?= h($organizations->cost_center) ?></td>
                 <td><?= h($organizations->name) ?></td>
                 <td><?= h($organizations->organization_id) ?></td>
                 <td><?= h($organizations->type_organization_id) ?></td>

@@ -12,8 +12,8 @@
             <a href="#" class="list-group-item list-group-item-action active"><?= __('Menu de acciones') ?></a>
             <?= $this->Html->link(__('New Employee'), ['action' => 'add'],['class' => 'list-group-item list-group-item-action small']) ?>
                                                            
-            <?= $this->Html->link(__('List Organization Offices'), ['controller' => 'OrganizationOffices', 'action' => 'index'],['class' => 'list-group-item list-group-item-action small']) ?>
-            <?= $this->Html->link(__('New Organization Office'), ['controller' => 'OrganizationOffices', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action small']) ?>
+            <?= $this->Html->link(__('List Organizations'), ['controller' => 'Organizations', 'action' => 'index'],['class' => 'list-group-item list-group-item-action small']) ?>
+            <?= $this->Html->link(__('New Organization'), ['controller' => 'Organizations', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action small']) ?>
                                                            
             <?= $this->Html->link(__('List Employee Positions'), ['controller' => 'EmployeePositions', 'action' => 'index'],['class' => 'list-group-item list-group-item-action small']) ?>
             <?= $this->Html->link(__('New Employee Position'), ['controller' => 'EmployeePositions', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action small']) ?>
@@ -36,7 +36,7 @@
                                                 <th scope="col"><?= $this->Paginator->sort('last_name') ?></th>
                                                 <th scope="col"><?= $this->Paginator->sort('mother_name') ?></th>
                                                 <th scope="col"><?= $this->Paginator->sort('names') ?></th>
-                                                <th scope="col"><?= $this->Paginator->sort('organization_office_id') ?></th>
+                                                <th scope="col"><?= $this->Paginator->sort('organization_id') ?></th>
                                                 <th scope="col"><?= $this->Paginator->sort('employee_position_id') ?></th>
                                                 <th scope="col"><?= $this->Paginator->sort('status_employee_id') ?></th>
                                                 <th scope="col"><?= $this->Paginator->sort('is_employee_system') ?></th>
@@ -53,7 +53,7 @@
                                                                                                                                                                                                                                                                                                                     <td><?= h($employee->last_name) ?></td>
                                                                                                                                                                                                                                                                                                                     <td><?= h($employee->mother_name) ?></td>
                                                                                                                                                                                                                                                                                                                     <td><?= h($employee->names) ?></td>
-                                                                                                                                                                                                                                <td><?= $employee->has('organization_office') ? $this->Html->link($employee->organization_office->name, ['controller' => 'OrganizationOffices', 'action' => 'view', $employee->organization_office->id]) : '' ?></td>
+                                                                                                                                                                                                                                <td><?= $employee->has('organization') ? $this->Html->link($employee->organization->name, ['controller' => 'Organizations', 'action' => 'view', $employee->organization->id]) : '' ?></td>
                                                                                                                                                                                                                                                             <td><?= $employee->has('employee_position') ? $this->Html->link($employee->employee_position->position, ['controller' => 'EmployeePositions', 'action' => 'view', $employee->employee_position->id]) : '' ?></td>
                                                                                                                                                                                                                                                             <td><?= $employee->has('status_employee') ? $this->Html->link($employee->status_employee->status, ['controller' => 'StatusEmployees', 'action' => 'view', $employee->status_employee->id]) : '' ?></td>
                                                                                                                                                                                                                                                                                                                                                 <td><?= h($employee->is_employee_system) ?></td>

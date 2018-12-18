@@ -21,7 +21,7 @@ class EmployeesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['OrganizationOffices', 'EmployeePositions', 'StatusEmployees']
+            'contain' => ['Organizations', 'EmployeePositions', 'StatusEmployees']
         ];
         $employees = $this->paginate($this->Employees);
 
@@ -38,7 +38,7 @@ class EmployeesController extends AppController
     public function view($id = null)
     {
         $employee = $this->Employees->get($id, [
-            'contain' => ['OrganizationOffices', 'EmployeePositions', 'StatusEmployees', 'Users']
+            'contain' => ['Organizations', 'EmployeePositions', 'StatusEmployees', 'Users']
         ]);
 
         $this->set('employee', $employee);
@@ -61,10 +61,10 @@ class EmployeesController extends AppController
             }
             $this->Flash->error(__('The employee could not be saved. Please, try again.'));
         }
-        $organizationOffices = $this->Employees->OrganizationOffices->find('list', ['limit' => 200]);
+        $organizations = $this->Employees->Organizations->find('list', ['limit' => 200]);
         $employeePositions = $this->Employees->EmployeePositions->find('list', ['limit' => 200]);
         $statusEmployees = $this->Employees->StatusEmployees->find('list', ['limit' => 200]);
-        $this->set(compact('employee', 'organizationOffices', 'employeePositions', 'statusEmployees'));
+        $this->set(compact('employee', 'organizations', 'employeePositions', 'statusEmployees'));
     }
 
     /**
@@ -88,10 +88,10 @@ class EmployeesController extends AppController
             }
             $this->Flash->error(__('The employee could not be saved. Please, try again.'));
         }
-        $organizationOffices = $this->Employees->OrganizationOffices->find('list', ['limit' => 200]);
+        $organizations = $this->Employees->Organizations->find('list', ['limit' => 200]);
         $employeePositions = $this->Employees->EmployeePositions->find('list', ['limit' => 200]);
         $statusEmployees = $this->Employees->StatusEmployees->find('list', ['limit' => 200]);
-        $this->set(compact('employee', 'organizationOffices', 'employeePositions', 'statusEmployees'));
+        $this->set(compact('employee', 'organizations', 'employeePositions', 'statusEmployees'));
     }
 
     /**
@@ -113,29 +113,4 @@ class EmployeesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-    public function ajaxGetDirectionsAll($id = null){
-        $organizationDirections = $this->Employees->OrganizationOffices->OrganizationSubdirections->OrganizationDirections
-        ->find('list')
-        ->where(['enabled' => 1]);
-        $this->set(compact('organizationDirections'));
-        $this->set('_serialize', ['organizationDirections']);
-    }
-
-    public function ajaxGetSubdirections($id = null){
-        $organizationSubdirections = $this->Employees->OrganizationOffices->OrganizationSubdirections
-        ->find('list')
-        ->where(['OrganizationSubdirections.organization_direction_id' => $id]);
-        $this->set(compact('organizationSubdirections'));
-        $this->set('_serialize', ['organizationSubdirections']);
-    }
-
-    public function ajaxGetOffices($id = null){
-        $organizationOffices = $this->Employees->OrganizationOffices
-        ->find('list')
-        ->where(['OrganizationOffices.organization_subdirection_id' => $id]);
-        $this->set(compact('organizationOffices'));
-        $this->set('_serialize', ['organizationOffices']);
-    }
-
 }

@@ -21,11 +21,13 @@
             <fieldset>
                 <legend><?= __('Add Organization') ?></legend>
                 <?php
-                    echo $this->Form->control('name', ['label' => 'Nombre de Organización', 'class' => 'form-control form-control-sm']);
-                    echo $this->Form->control('organization_id', ['label' => 'Organización Padre', 'option' => $organizations, 'class' => 'form-control form-control-sm']);
-                    echo $this->Form->control('type_organization_id', ['label' => 'Tipo de Organización', 'options' => $typeOrganizations, 'class' => 'form-control form-control-sm']);
-                    echo $this->Form->control('description', ['label' => 'Descripción', 'class' => 'form-control form-control-sm']);
-                    echo $this->Form->control('enabled', ['label' => '¿Habilitar?', 'class' => 'form-control form-control-sm']);
+                                        echo $this->Form->control('id_unique', ['class' => 'form-control form-control-sm']);
+                    echo $this->Form->control('cost_center', ['class' => 'form-control form-control-sm']);
+                    echo $this->Form->control('name', ['class' => 'form-control form-control-sm']);
+                    echo $this->Form->control('organization_id', ['class' => 'form-control form-control-sm']);
+                    echo $this->Form->control('type_organization_id', ['options' => $typeOrganizations, ['class' => 'form-control form-control-sm']]);
+                    echo $this->Form->control('description', ['class' => 'form-control form-control-sm']);
+                    echo $this->Form->control('enabled', ['class' => 'form-control form-control-sm']);
                 ?>
              </fieldset>
             <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-sm btn-success']) ?>

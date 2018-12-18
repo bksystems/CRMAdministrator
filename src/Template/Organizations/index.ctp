@@ -22,23 +22,31 @@
             <table cellpadding="0" cellspacing="0" class="table table-hover table-striped" style="font-size:12px;">
                 <thead>
                     <tr>
-						<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-						<th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                        <th scope="col"><?= $this->Paginator->sort('type_organization_id') ?></th>
-						<th scope="col"><?= $this->Paginator->sort('organization_id') ?></th>
-						<th scope="col"><?= $this->Paginator->sort('enabled') ?></th>
-						<th scope="col" class="actions"><?= __('Actions') ?></th>
+                                                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                                                <th scope="col"><?= $this->Paginator->sort('id_unique') ?></th>
+                                                <th scope="col"><?= $this->Paginator->sort('cost_center') ?></th>
+                                                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
+                                                <th scope="col"><?= $this->Paginator->sort('organization_id') ?></th>
+                                                <th scope="col"><?= $this->Paginator->sort('type_organization_id') ?></th>
+                                                <th scope="col"><?= $this->Paginator->sort('enabled') ?></th>
+                                                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
+                                                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+                                                <th scope="col" class="actions"><?= __('Actions') ?></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($organizations as $organization): ?>
                         <tr>
-							<td><?= $this->Number->format($organization->id) ?></td>
-							<td><?= h($organization->name) ?></td>
-                            <td><?= $organization->has('type_organization') ? $this->Html->link($organization->type_organization, ['controller' => 'TypeOrganizations', 'action' => 'view', $organization->type_organization_id]) : '' ?></td>
-							<td><?= h($organization->name_level) ?></td>	
-							<td><?= h($organization->enabled) ?></td>
-							<td class="actions">
+                                                                                                                                                                                                                                                            <td><?= $this->Number->format($organization->id) ?></td>
+                                                                                                                                                                                                                                                                                                                    <td><?= $this->Number->format($organization->id_unique) ?></td>
+                                                                                                                                                                                                                                                                                                                    <td><?= $this->Number->format($organization->cost_center) ?></td>
+                                                                                                                                                                                                                                                                                                                    <td><?= h($organization->name) ?></td>
+                                                                                                                                                                                                                                                                                                                    <td><?= $this->Number->format($organization->organization_id) ?></td>
+                                                                                                                                                                                                                                <td><?= $organization->has('type_organization') ? $this->Html->link($organization->type_organization->type, ['controller' => 'TypeOrganizations', 'action' => 'view', $organization->type_organization->id]) : '' ?></td>
+                                                                                                                                                                                                                                                                                                                                                <td><?= h($organization->enabled) ?></td>
+                                                                                                                                                                                                                                                                                                                    <td><?= h($organization->created) ?></td>
+                                                                                                                                                                                                                                                                                                                    <td><?= h($organization->modified) ?></td>
+                                                                                                                                            <td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $organization->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $organization->id]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $organization->id], ['confirm' => __('Are you sure you want to delete # {0}?', $organization->id)]) ?>

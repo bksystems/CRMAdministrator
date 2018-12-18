@@ -27,7 +27,9 @@
             <fieldset>
                 <legend><?= __('Edit Organization') ?></legend>
                 <?php
-                                        echo $this->Form->control('name', ['class' => 'form-control form-control-sm']);
+                                        echo $this->Form->control('id_unique', ['class' => 'form-control form-control-sm']);
+                    echo $this->Form->control('cost_center', ['class' => 'form-control form-control-sm']);
+                    echo $this->Form->control('name', ['class' => 'form-control form-control-sm']);
                     echo $this->Form->control('organization_id', ['class' => 'form-control form-control-sm']);
                     echo $this->Form->control('type_organization_id', ['options' => $typeOrganizations, ['class' => 'form-control form-control-sm']]);
                     echo $this->Form->control('description', ['class' => 'form-control form-control-sm']);

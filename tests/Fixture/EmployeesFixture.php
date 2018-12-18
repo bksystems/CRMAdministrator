@@ -22,7 +22,7 @@ class EmployeesFixture extends TestFixture
         'last_name' => ['type' => 'string', 'length' => 100, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'mother_name' => ['type' => 'string', 'length' => 100, 'null' => true, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'names' => ['type' => 'string', 'length' => 150, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'organization_office_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'organization_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'employee_position_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'status_employee_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'is_employee_system' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
@@ -53,12 +53,12 @@ class EmployeesFixture extends TestFixture
                 'last_name' => 'Lorem ipsum dolor sit amet',
                 'mother_name' => 'Lorem ipsum dolor sit amet',
                 'names' => 'Lorem ipsum dolor sit amet',
-                'organization_office_id' => 1,
+                'organization_id' => 1,
                 'employee_position_id' => 1,
                 'status_employee_id' => 1,
                 'is_employee_system' => 1,
-                'created' => '2018-12-08 20:02:46',
-                'modified' => '2018-12-08 20:02:46'
+                'created' => '2018-12-18 19:47:18',
+                'modified' => '2018-12-18 19:47:18'
             ],
         ];
         parent::init();

@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\OrganizationsTable|\Cake\ORM\Association\BelongsTo $Organizations
  * @property \App\Model\Table\TypeOrganizationsTable|\Cake\ORM\Association\BelongsTo $TypeOrganizations
+ * @property |\Cake\ORM\Association\HasMany $Employees
  * @property \App\Model\Table\OrganizationsTable|\Cake\ORM\Association\HasMany $Organizations
  *
  * @method \App\Model\Entity\Organization get($primaryKey, $options = [])
@@ -51,6 +52,9 @@ class OrganizationsTable extends Table
             'foreignKey' => 'type_organization_id',
             'joinType' => 'INNER'
         ]);
+        $this->hasMany('Employees', [
+            'foreignKey' => 'organization_id'
+        ]);
         $this->hasMany('Organizations', [
             'foreignKey' => 'organization_id'
         ]);
@@ -67,6 +71,16 @@ class OrganizationsTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
+
+        $validator
+            ->integer('id_unique')
+            ->requirePresence('id_unique', 'create')
+            ->notEmpty('id_unique');
+
+        $validator
+            ->integer('cost_center')
+            ->requirePresence('cost_center', 'create')
+            ->notEmpty('cost_center');
 
         $validator
             ->scalar('name')

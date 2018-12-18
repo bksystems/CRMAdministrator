@@ -7,6 +7,8 @@ use Cake\ORM\Entity;
  * Organization Entity
  *
  * @property int $id
+ * @property int $id_unique
+ * @property int $cost_center
  * @property string $name
  * @property int $organization_id
  * @property int $type_organization_id
@@ -31,6 +33,8 @@ class Organization extends Entity
      * @var array
      */
     protected $_accessible = [
+        'id_unique' => true,
+        'cost_center' => true,
         'name' => true,
         'organization_id' => true,
         'type_organization_id' => true,

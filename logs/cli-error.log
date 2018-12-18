@@ -39,3 +39,62 @@ Stack Trace:
 #15 {main}
 
 
+2018-12-18 15:54:42 Error: [RuntimeException] Unknown command `cake all`. Run `cake --help` to get the list of valid commands. in D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 321
+Stack Trace:
+#0 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\CommandRunner.php(159): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'all')
+#1 D:\xampp\htdocs\CRMAdministrator\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2018-12-18 15:54:50 Error: [RuntimeException] Unknown command `cake cake`. Run `cake --help` to get the list of valid commands. in D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 321
+Stack Trace:
+#0 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\CommandRunner.php(159): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'cake')
+#1 D:\xampp\htdocs\CRMAdministrator\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2018-12-18 15:54:53 Error: [RuntimeException] Unknown command `cake cake`. Run `cake --help` to get the list of valid commands. in D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 321
+Stack Trace:
+#0 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\CommandRunner.php(159): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'cake')
+#1 D:\xampp\htdocs\CRMAdministrator\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2018-12-18 16:01:27 Warning: Warning (2): fopen(D:\xampp\htdocs\CRMAdministrator\src\Template\Organizations\index.ctp): failed to open stream: Permission denied in [D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Filesystem\File.php, line 135]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 159
+fopen - [internal], line ??
+Cake\Filesystem\File::open() - CORE\src\Filesystem\File.php, line 135
+Cake\Filesystem\File::write() - CORE\src\Filesystem\File.php, line 228
+Cake\Console\Shell::createFile() - CORE\src\Console\Shell.php, line 935
+Bake\Shell\Task\TemplateTask::bake() - ROOT\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php, line 354
+Bake\Shell\Task\TemplateTask::main() - ROOT\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php, line 148
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT\vendor\cakephp\bake\src\Shell\BakeShell.php, line 273
+Cake\Collection\Collection::each() - CORE\src\Collection\CollectionTrait.php, line 51
+Bake\Shell\BakeShell::all() - ROOT\vendor\cakephp\bake\src\Shell\BakeShell.php, line 274
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 518
+Cake\Console\CommandRunner::runShell() - CORE\src\Console\CommandRunner.php, line 342
+Cake\Console\CommandRunner::run() - CORE\src\Console\CommandRunner.php, line 164
+[main] - ROOT\bin\cake.php, line 12
+
+
+
+2018-12-18 16:01:28 Warning: Warning (2): fopen(D:\xampp\htdocs\CRMAdministrator\src\Template\Organizations\view.ctp): failed to open stream: Permission denied in [D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Filesystem\File.php, line 135]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 159
+fopen - [internal], line ??
+Cake\Filesystem\File::open() - CORE\src\Filesystem\File.php, line 135
+Cake\Filesystem\File::write() - CORE\src\Filesystem\File.php, line 228
+Cake\Console\Shell::createFile() - CORE\src\Console\Shell.php, line 935
+Bake\Shell\Task\TemplateTask::bake() - ROOT\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php, line 354
+Bake\Shell\Task\TemplateTask::main() - ROOT\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php, line 148
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT\vendor\cakephp\bake\src\Shell\BakeShell.php, line 273
+Cake\Collection\Collection::each() - CORE\src\Collection\CollectionTrait.php, line 51
+Bake\Shell\BakeShell::all() - ROOT\vendor\cakephp\bake\src\Shell\BakeShell.php, line 274
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 518
+Cake\Console\CommandRunner::runShell() - CORE\src\Console\CommandRunner.php, line 342
+Cake\Console\CommandRunner::run() - CORE\src\Console\CommandRunner.php, line 164
+[main] - ROOT\bin\cake.php, line 12
+
+
+

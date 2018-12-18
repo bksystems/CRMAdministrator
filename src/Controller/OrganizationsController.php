@@ -20,40 +20,10 @@ class OrganizationsController extends AppController
      */
     public function index()
     {
-        /*$this->paginate = [
+        $this->paginate = [
             'contain' => ['TypeOrganizations']
-        ];*/
-        //$organizations = $this->paginate($this->Organizations);
-
-        $organizationsFilter = $this->Organizations->find()
-        ->select([
-            'id' => 'Organizations.id',
-            'name' => 'Organizations.name',
-            'name_level' => 'o.name',
-            'type_organization' => 't.type',
-            'type_organization_id' => 't.id',
-            'enabled' => 'Organizations.enabled',
-            'description' => 'Organizations.description',
-        ])
-        ->join([
-            'o' => [
-                'table' => 'organizations',
-                'type' => 'LEFT',
-                'conditions' => 'Organizations.organization_id = o.id' 
-            ]
-        ])
-        ->join([
-            t => [
-                'table' => 'type_organizations',
-                'type' => 'INNER',
-                'conditions' => 'Organizations.type_organization_id  = t.id'
-            ]
-        ])
-        ->order([
-            'o.name' => 'ASC'
-        ]);
-
-        $organizations = $this->paginate($organizationsFilter);
+        ];
+        $organizations = $this->paginate($this->Organizations);
 
         $this->set(compact('organizations'));
     }
@@ -92,8 +62,7 @@ class OrganizationsController extends AppController
             $this->Flash->error(__('The organization could not be saved. Please, try again.'));
         }
         $typeOrganizations = $this->Organizations->TypeOrganizations->find('list', ['limit' => 200]);
-        $organizations = $this->Organizations->find('list', ['limit' => 200]);
-        $this->set(compact('organization', 'typeOrganizations', 'organizations'));
+        $this->set(compact('organization', 'typeOrganizations'));
     }
 
     /**
@@ -139,24 +108,5 @@ class OrganizationsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    public function getOrganizationAll(){
-        $organizations = $this->Organizations->find()
-        ->select([
-            'id' => 'Organizations.id',
-            'name' => 'Organizations.name',
-            'namePadre' => 'o.name',
-        ])
-        ->join([
-            'o' => [
-                'table' => 'organizations',
-                'type' => 'LEFT',
-                'conditions' => 'Organizations.organization_id = o.id' 
-            ]
-        ]);
-
-        $this->set(compact('organizations'));
-        $this->set('_serialize', ['organizations']);
     }
 }

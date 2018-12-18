@@ -17,7 +17,7 @@ class EmployeesControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.employees',
-        'app.organization_offices',
+        'app.organizations',
         'app.employee_positions',
         'app.status_employees',
         'app.users'

@@ -15,8 +15,8 @@
             )
             ?></li>
                         <?= $this->Html->link(__('List Employees'), ['action' => 'index'], ['class' => 'list-group-item list-group-item-action small']) ?>
-                        <?= $this->Html->link(__('List Organization Offices'), ['controller' => 'OrganizationOffices', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action small']) ?>
-            <?= $this->Html->link(__('New Organization Office'), ['controller' => 'OrganizationOffices', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action small']) ?>
+                        <?= $this->Html->link(__('List Organizations'), ['controller' => 'Organizations', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action small']) ?>
+            <?= $this->Html->link(__('New Organization'), ['controller' => 'Organizations', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action small']) ?>
             <?= $this->Html->link(__('List Employee Positions'), ['controller' => 'EmployeePositions', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action small']) ?>
             <?= $this->Html->link(__('New Employee Position'), ['controller' => 'EmployeePositions', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action small']) ?>
             <?= $this->Html->link(__('List Status Employees'), ['controller' => 'StatusEmployees', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action small']) ?>
@@ -35,7 +35,7 @@
                     echo $this->Form->control('last_name', ['class' => 'form-control form-control-sm']);
                     echo $this->Form->control('mother_name', ['class' => 'form-control form-control-sm']);
                     echo $this->Form->control('names', ['class' => 'form-control form-control-sm']);
-                    echo $this->Form->control('organization_office_id', ['options' => $organizationOffices, ['class' => 'form-control form-control-sm']]);
+                    echo $this->Form->control('organization_id', ['options' => $organizations, ['class' => 'form-control form-control-sm']]);
                     echo $this->Form->control('employee_position_id', ['options' => $employeePositions, ['class' => 'form-control form-control-sm']]);
                     echo $this->Form->control('status_employee_id', ['options' => $statusEmployees, ['class' => 'form-control form-control-sm']]);
                     echo $this->Form->control('is_employee_system', ['class' => 'form-control form-control-sm']);

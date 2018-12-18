@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Employees Model
  *
- * @property \App\Model\Table\OrganizationOfficesTable|\Cake\ORM\Association\BelongsTo $OrganizationOffices
+ * @property \App\Model\Table\OrganizationsTable|\Cake\ORM\Association\BelongsTo $Organizations
  * @property \App\Model\Table\EmployeePositionsTable|\Cake\ORM\Association\BelongsTo $EmployeePositions
  * @property \App\Model\Table\StatusEmployeesTable|\Cake\ORM\Association\BelongsTo $StatusEmployees
  * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\HasMany $Users
@@ -44,8 +44,8 @@ class EmployeesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('OrganizationOffices', [
-            'foreignKey' => 'organization_office_id',
+        $this->belongsTo('Organizations', [
+            'foreignKey' => 'organization_id',
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('EmployeePositions', [
@@ -114,7 +114,7 @@ class EmployeesTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['roster']));
-        $rules->add($rules->existsIn(['organization_office_id'], 'OrganizationOffices'));
+        $rules->add($rules->existsIn(['organization_id'], 'Organizations'));
         $rules->add($rules->existsIn(['employee_position_id'], 'EmployeePositions'));
         $rules->add($rules->existsIn(['status_employee_id'], 'StatusEmployees'));
 
