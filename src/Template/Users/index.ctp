@@ -37,14 +37,14 @@
                     <?php foreach ($users as $user): ?>
                         <tr>
                                                                                                                                                                                                                                                             <td><?= $this->Number->format($user->id) ?></td>
-                                                                                                                                                                                                                                <td><?= $user->has('employee') ? $this->Html->link($user->employee->id, ['controller' => 'Employees', 'action' => 'view', $user->employee->id]) : '' ?></td>
-                                                                                                                                                                                                                                                                                                                                                <td><?= h($user->username) ?></td>
-                                                                                                                                                                                                                                                                                                                    <td><?= h($user->password) ?></td>
-                                                                                                                                                                                                                                                                                                                    <td><?= $this->Number->format($user->rol_id) ?></td>
-                                                                                                                                                                                                                                                                                                                    <td><?= $this->Number->format($user->status_user_id) ?></td>
-                                                                                                                                                                                                                                                                                                                    <td><?= h($user->created) ?></td>
-                                                                                                                                                                                                                                                                                                                    <td><?= h($user->modified) ?></td>
-                                                                                                                                            <td class="actions">
+                            <td><?= $user->has('employee') ? $this->Html->link($user->employee->full_name, ['controller' => 'Employees', 'action' => 'view', $user->employee->id]) : '' ?></td>
+                            <td><?= h($user->username) ?></td>
+                            <td><?= h($user->password) ?></td>
+                            <td><?= h($user->rol->name) ?></td>
+                            <td><?= h($user->status_user->status) ?></td>
+                            <td><?= h($user->created) ?></td>
+                            <td><?= h($user->modified) ?></td>
+                            <td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>

@@ -25,7 +25,7 @@
             <fieldset>
                 <legend><?= __('Add Employee') ?></legend>
                 <?php
-                                        echo $this->Form->control('roster', ['class' => 'form-control form-control-sm']);
+                    echo $this->Form->control('roster', ['class' => 'form-control form-control-sm']);
                     echo $this->Form->control('last_name', ['class' => 'form-control form-control-sm']);
                     echo $this->Form->control('mother_name', ['class' => 'form-control form-control-sm']);
                     echo $this->Form->control('names', ['class' => 'form-control form-control-sm']);

@@ -61,8 +61,16 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
+
+
+        $users = $this->Users
+            ->find()
+            ->select(['Users.employee_id'])
+            ->where(['status_employee_id' => 1]);
+
         $employees = $this->Users->Employees->find('list', ['limit' => 200])
-            ->where(['is_employee_system' => 1]);
+            ->where(['is_employee_system' => 1, 'id NOT IN' => $users]);
+
         $rols = $this->Users->Rols->find('list', ['limit' => 200]);
         $statusUsers = $this->Users->StatusUsers->find('list', ['limit' => 200]);
         $this->set(compact('user', 'employees', 'rols', 'statusUsers'));
@@ -125,7 +133,7 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Flash->set(__('Invalid email or password, try again'), ['element' => 'warning', 'class' => 'warning']);
+            $this->Flash->set(__('Usuario o contraseña incorrecto'),['element' => 'error']);
         }
     }
 

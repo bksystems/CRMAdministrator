@@ -51,4 +51,10 @@ class Employee extends Entity
         'status_employee' => true,
         'users' => true
     ];
+
+    protected $_virtual = ['full_name'];
+
+    protected function _getFullName() {
+        return $this->last_name . ' - ' . $this->mother_name . ', ' . $this->names;
+    }
 }

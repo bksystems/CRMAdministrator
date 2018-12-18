@@ -45,7 +45,8 @@
       <li class="nav-item dropdown">
        
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <?=  $this->request->session()->read('Auth.User')['username'];?>
+          <!--<?=  $this->request->session()->read('Auth.User')['employee_id'];?>-->
+          <?php print_r($employee_login->full_name); ?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <?= $this->Html->link(__('Bitacora'), ['action' => 'index',  'controller' => 'TblSysOrganizations'],['class' => 'dropdown-item small']) ?>

@@ -28,7 +28,7 @@ class Rol extends Entity
      * @var array
      */
     protected $_accessible = [
-        'rol_name' => true,
+        'name' => true,
         'description' => true,
         'enabled' => true,
         'created' => true,

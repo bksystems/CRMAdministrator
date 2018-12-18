@@ -82,9 +82,14 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event)
     {
-        //$this->Auth->allow(['index','view', 'add', 'edit']);
-        $this->set('loggedIn', $this->Auth->user());
-        $this->isAuthorized();
+        if($this->Auth->user()){
+            $this->loadModel('Employees');
+            //$this->Auth->allow(['index','view', 'add', 'edit']);
+            $this->set(['loggedIn' => $this->Auth->user(), 
+                'employee_login' => $this->Employees->get($this->Auth->user('id'))
+            ]);
+            $this->isAuthorized();
+        }
     }
 
 

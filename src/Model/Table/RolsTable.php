@@ -36,7 +36,7 @@ class RolsTable extends Table
         parent::initialize($config);
 
         $this->setTable('rols');
-        $this->setDisplayField('rol_name');
+        $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -59,10 +59,10 @@ class RolsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('rol_name')
-            ->maxLength('rol_name', 100)
-            ->requirePresence('rol_name', 'create')
-            ->notEmpty('rol_name');
+            ->scalar('name')
+            ->maxLength('name', 100)
+            ->requirePresence('name', 'create')
+            ->notEmpty('name');
 
         $validator
             ->scalar('description')

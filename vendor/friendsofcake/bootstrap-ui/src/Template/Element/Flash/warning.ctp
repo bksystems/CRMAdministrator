@@ -16,3 +16,4 @@
 <script>
     $('.alert').alert();
 </script>
+

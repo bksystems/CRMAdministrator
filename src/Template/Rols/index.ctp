@@ -33,12 +33,12 @@
                 <tbody>
                     <?php foreach ($rols as $rol): ?>
                         <tr>
-                                                                                                                                                                                                    <td><?= $this->Number->format($rol->id) ?></td>
-                                                                                                                                                                                                                                                            <td><?= h($rol->rol_name) ?></td>
-                                                                                                                                                                                                                                                            <td><?= h($rol->enabled) ?></td>
-                                                                                                                                                                                                                                                            <td><?= h($rol->created) ?></td>
-                                                                                                                                                                                                                                                            <td><?= h($rol->modified) ?></td>
-                                                                                                                                            <td class="actions">
+                            <td><?= $this->Number->format($rol->id) ?></td>
+                            <td><?= h($rol->name) ?></td>
+                            <td><?= h($rol->enabled) ?></td>
+                            <td><?= h($rol->created) ?></td>
+                            <td><?= h($rol->modified) ?></td>
+                            <td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $rol->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $rol->id]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $rol->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rol->id)]) ?>

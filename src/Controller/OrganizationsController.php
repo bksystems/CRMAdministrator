@@ -62,7 +62,9 @@ class OrganizationsController extends AppController
             $this->Flash->error(__('The organization could not be saved. Please, try again.'));
         }
         $typeOrganizations = $this->Organizations->TypeOrganizations->find('list', ['limit' => 200]);
-        $this->set(compact('organization', 'typeOrganizations'));
+        $organizations = $this->Organizations->find('list', ['limit' => 200])
+            ->order(['name' => 'ASC']);
+        $this->set(compact('organization', 'organizations', 'typeOrganizations'));
     }
 
     /**
