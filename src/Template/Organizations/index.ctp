@@ -24,8 +24,8 @@
                     <tr>
 						<th scope="col"><?= $this->Paginator->sort('id') ?></th>
 						<th scope="col"><?= $this->Paginator->sort('name') ?></th>
+                        <th scope="col"><?= $this->Paginator->sort('type_organization_id') ?></th>
 						<th scope="col"><?= $this->Paginator->sort('organization_id') ?></th>
-						<th scope="col"><?= $this->Paginator->sort('type_organization_id') ?></th>
 						<th scope="col"><?= $this->Paginator->sort('enabled') ?></th>
 						<th scope="col" class="actions"><?= __('Actions') ?></th>
                     </tr>
@@ -35,8 +35,8 @@
                         <tr>
 							<td><?= $this->Number->format($organization->id) ?></td>
 							<td><?= h($organization->name) ?></td>
-							<td><?= $this->Number->format($organization->name) ?></td>
-							<td><?= $organization->has('type_organization') ? $this->Html->link($organization->type_organization->type, ['controller' => 'TypeOrganizations', 'action' => 'view', $organization->type_organization->id]) : '' ?></td>
+                            <td><?= $organization->has('type_organization') ? $this->Html->link($organization->type_organization, ['controller' => 'TypeOrganizations', 'action' => 'view', $organization->type_organization_id]) : '' ?></td>
+							<td><?= h($organization->name_level) ?></td>	
 							<td><?= h($organization->enabled) ?></td>
 							<td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $organization->id]) ?>
