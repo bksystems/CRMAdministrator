@@ -19,11 +19,12 @@
             <fieldset>
                 <legend><?= __('Add Rol') ?></legend>
                 <?php
-                                        echo $this->Form->control('rol_name', ['class' => 'form-control form-control-sm']);
+                    echo $this->Form->control('rol_name', ['class' => 'form-control form-control-sm']);
                     echo $this->Form->control('description', ['class' => 'form-control form-control-sm']);
-                    echo $this->Form->control('enabled', ['class' => 'form-control form-control-sm']);
+                    echo $this->Form->control('enabled', ['class' => 'form-control form-control-sm'],  ['type' => 'checkbox']);
                 ?>
              </fieldset>
+
             <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-sm btn-success']) ?>
             <?= $this->Form->end() ?>
         </div>

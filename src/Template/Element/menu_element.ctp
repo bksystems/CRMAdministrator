@@ -24,8 +24,8 @@
           <div class="dropdown-divider">a</div>
           <?= $this->Html->link(__('Usuarios'), ['action' => 'index',  'controller' => 'users'],['class' => 'dropdown-item small']) ?>
           <?= $this->Html->link(__('Roles'), ['action' => 'index',  'controller' => 'rols'],['class' => 'dropdown-item small']) ?>
-          <?= $this->Html->link(__('Roles - Permisos'), ['action' => 'index',  'controller' => 'permissions'],['class' => 'dropdown-item small']) ?>
-          <?= $this->Html->link(__('Permisos'), ['action' => 'index',  'controller' => 'TblSysPermissions'],['class' => 'dropdown-item small']) ?>
+          <?= $this->Html->link(__('Roles - Permisos'), ['action' => 'index',  'controller' => 'rols_permissions'],['class' => 'dropdown-item small']) ?>
+          <?= $this->Html->link(__('Permisos'), ['action' => 'index',  'controller' => 'permissions'],['class' => 'dropdown-item small']) ?>
 
         </div>
       </li>

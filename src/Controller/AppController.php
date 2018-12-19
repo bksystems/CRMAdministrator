@@ -76,8 +76,30 @@ class AppController extends Controller
     public function isAuthorized($user = null)
     {
         if($this->Auth->user()){
-            $user_id = $this->Auth->user('id');  
-        }  
+            $rol_id = $this->Auth->user('rol_id');  
+            $this->loadModel('Rols');
+            $rol = $this->Rols->get($rol_id);
+            if($rol['id'] > 0 && $rol['enabled'] == true){
+                $params = $this->request->params;
+                $controller = $this->request->params['controller'];
+                $action = $this->request->params['action'];
+                //$token = $this->request->params['_csrfToken'];
+                if($this->validatePermissions($this->Auth->user('id'), $rol_id, $controller, $action)){
+
+                }else{
+                    $this->Flash->warning(__('El usuario no cuenta con premisos para esta sección. ' . $controller . ' - ' . $action)); 
+                    //$this->redirect($this->Auth->loginRedirect);     
+                }
+            }else{
+                $this->redirect($this->Auth->logout());
+                $this->Flash->error(__('El usuario no cuenta con rol habilitado, por favor contactar al administrador. '));
+            }
+        } 
+
+    }
+
+    public function validatePermissions($user_id, $rol_id, $controller, $action){
+        return false;
     }
 
     public function beforeFilter(Event $event)

@@ -48,6 +48,9 @@ class RolsController extends AppController
      */
     public function add()
     {
+        $this->loadModel('Permissions');
+        $permissions = $this->paginate($this->Permissions);
+
         $rol = $this->Rols->newEntity();
         if ($this->request->is('post')) {
             $rol = $this->Rols->patchEntity($rol, $this->request->getData());
@@ -58,7 +61,7 @@ class RolsController extends AppController
             }
             $this->Flash->error(__('The rol could not be saved. Please, try again.'));
         }
-        $this->set(compact('rol'));
+        $this->set(compact(['rol', 'permissions']));
     }
 
     /**
@@ -70,9 +73,13 @@ class RolsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->loadModel('Permissions');
+        $permissions = $this->paginate($this->Permissions);
+
         $rol = $this->Rols->get($id, [
             'contain' => []
         ]);
+    
         if ($this->request->is(['patch', 'post', 'put'])) {
             $rol = $this->Rols->patchEntity($rol, $this->request->getData());
             if ($this->Rols->save($rol)) {
@@ -82,7 +89,7 @@ class RolsController extends AppController
             }
             $this->Flash->error(__('The rol could not be saved. Please, try again.'));
         }
-        $this->set(compact('rol'));
+        $this->set(compact(['rol', 'permissions']));
     }
 
     /**
