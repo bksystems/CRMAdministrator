@@ -34,4 +34,10 @@ class Permission extends Entity
         'created' => true,
         'modified' => true
     ];
+
+    protected $_virtual = ['full_name'];
+
+    protected function _getFullName() {
+        return 'Controlador: ' . $this->controller . ', Acción: ' . $this->action;
+    }
 }

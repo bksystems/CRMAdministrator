@@ -23,7 +23,7 @@ class RolsPermissionsController extends AppController
         $this->paginate = [
             'contain' => ['Rols', 'Permissions']
         ];
-        $rolsPermissions = $this->paginate($this->RolsPermissions);
+        $rolsPermissions = $this->paginate($this->RolsPermissions->find('all')->order(['name' => 'ASC']));
 
         $this->set(compact('rolsPermissions'));
     }
@@ -88,7 +88,8 @@ class RolsPermissionsController extends AppController
             $this->Flash->error(__('The rols permission could not be saved. Please, try again.'));
         }
         $rols = $this->RolsPermissions->Rols->find('list', ['limit' => 200]);
-        $permissions = $this->RolsPermissions->Permissions->find('list', ['limit' => 200]);
+        $permissions = $this->RolsPermissions->Permissions->find('list', ['limit' => 200])
+            ->order(['controller' => 'ASC']);
         $this->set(compact('rolsPermission', 'rols', 'permissions'));
     }
 

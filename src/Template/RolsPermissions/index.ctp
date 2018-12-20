@@ -36,12 +36,12 @@
                 <tbody>
                     <?php foreach ($rolsPermissions as $rolsPermission): ?>
                         <tr>
-                                                                                                                                                                                                                                                            <td><?= $this->Number->format($rolsPermission->id) ?></td>
-                                                                                                                                                                                                                                <td><?= $rolsPermission->has('rol') ? $this->Html->link($rolsPermission->rol->name, ['controller' => 'Rols', 'action' => 'view', $rolsPermission->rol->id]) : '' ?></td>
-                                                                                                                                                                                                                                                            <td><?= $rolsPermission->has('permission') ? $this->Html->link($rolsPermission->permission->id, ['controller' => 'Permissions', 'action' => 'view', $rolsPermission->permission->id]) : '' ?></td>
-                                                                                                                                                                                                                                                                                                                                                <td><?= h($rolsPermission->created) ?></td>
-                                                                                                                                                                                                                                                                                                                    <td><?= h($rolsPermission->modified) ?></td>
-                                                                                                                                            <td class="actions">
+                            <td><?= $this->Number->format($rolsPermission->id) ?></td>
+                            <td><?= $rolsPermission->has('rol') ? $this->Html->link($rolsPermission->rol->name, ['controller' => 'Rols', 'action' => 'view', $rolsPermission->rol->id]) : '' ?></td>
+                            <td><?= $rolsPermission->has('permission') ? $this->Html->link($rolsPermission->permission->full_name, ['controller' => 'Permissions', 'action' => 'view', $rolsPermission->permission->id]) : '' ?></td>
+                            <td><?= h($rolsPermission->created) ?></td>
+                            <td><?= h($rolsPermission->modified) ?></td>
+                            <td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $rolsPermission->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $rolsPermission->id]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $rolsPermission->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rolsPermission->id)]) ?>

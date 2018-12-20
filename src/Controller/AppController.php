@@ -80,26 +80,56 @@ class AppController extends Controller
             $this->loadModel('Rols');
             $rol = $this->Rols->get($rol_id);
             if($rol['id'] > 0 && $rol['enabled'] == true){
-                $params = $this->request->params;
-                $controller = $this->request->params['controller'];
-                $action = $this->request->params['action'];
-                //$token = $this->request->params['_csrfToken'];
-                if($this->validatePermissions($this->Auth->user('id'), $rol_id, $controller, $action)){
-
+                if($rol['name'] == 'SAdmin'){
+                    return true;
                 }else{
-                    $this->Flash->warning(__('El usuario no cuenta con premisos para esta sección. ' . $controller . ' - ' . $action)); 
-                    //$this->redirect($this->Auth->loginRedirect);     
+                    if($this->validatePermissions($this->Auth->user('id'), $rol_id)){
+                        return true;
+                    }else{
+                        
+                        $controller = $this->request->params['controller'];
+                        //$action = $this->request->params['action'];
+                        $this->Flash->warning(__('El usuario no cuenta con premisos para esta sección de: ' . $controller )); 
+                        //$this->Flash->warning(__('El usuario no cuenta con premisos para esta sección. ' . 'Controller = ' . $controller . ' - Action = ' . $action));      
+                        $this->redirect(['controller' => 'Pages', 'action' => 'home']);
+                    }
                 }
             }else{
                 $this->redirect($this->Auth->logout());
                 $this->Flash->error(__('El usuario no cuenta con rol habilitado, por favor contactar al administrador. '));
+                return false;
             }
         } 
 
     }
 
-    public function validatePermissions($user_id, $rol_id, $controller, $action){
-        return false;
+    public function validatePermissions($user_id, $rol_id){
+        $this->loadModel('Permissions');
+        $this->loadModel('RolsPermissions');
+
+        $controller = $this->request->params['controller'];
+        $action = $this->request->params['action'];
+
+        $permission = $this->Permissions->find('all')
+            ->where([
+                'AND' => [['controller' => $controller], ['action' => $action]]
+            ])
+            ->toArray();
+
+        if($permission){
+            $rol_permission = $this->RolsPermissions->find('all')
+                ->where([
+                    'AND' => [['rol_id' => $rol_id], 'permission_id' => $permission[0]['id']]
+                ])
+                ->toArray();
+                if($rol_permission){
+                    return true;
+                }else{
+                    return false;
+                }
+        }else{
+            return false;
+        }
     }
 
     public function beforeFilter(Event $event)

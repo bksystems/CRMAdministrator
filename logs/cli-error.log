@@ -98,3 +98,43 @@ Cake\Console\CommandRunner::run() - CORE\src\Console\CommandRunner.php, line 164
 
 
 
+2018-12-20 19:01:06 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'crmadministrator.steet_activitys' doesn't exist in D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 131
+Stack Trace:
+#0 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'steet_activitys', Array, Object(Cake\Database\Schema\TableSchema))
+#1 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('steet_activitys', Array)
+#2 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\ORM\Table.php(548): Cake\Database\Schema\CachedCollection->describe('steet_activitys')
+#3 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\ORM\Table.php(673): Cake\ORM\Table->getSchema()
+#4 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#5 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'steet_activitys', 'SteetActivitys')
+#7 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('SteetActivitys')
+#8 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\BakeShell.php(273): Bake\Shell\Task\ModelTask->main('SteetActivitys')
+#9 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('SteetActivitys', 0)
+#10 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\BakeShell.php(274): Cake\Collection\Collection->each(Object(Closure))
+#11 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('steet_activitys')
+#12 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\CommandRunner.php(342): Cake\Console\Shell->runCommand(Array, true)
+#13 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\CommandRunner.php(164): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#14 D:\xampp\htdocs\CRMAdministrator\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#15 {main}
+
+
+2018-12-20 19:02:52 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'crmadministrator.steet_activites' doesn't exist in D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 131
+Stack Trace:
+#0 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'steet_activites', Array, Object(Cake\Database\Schema\TableSchema))
+#1 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('steet_activites', Array)
+#2 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\ORM\Table.php(548): Cake\Database\Schema\CachedCollection->describe('steet_activites')
+#3 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\ORM\Table.php(673): Cake\ORM\Table->getSchema()
+#4 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#5 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'steet_activites', 'SteetActivites')
+#7 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('SteetActivites')
+#8 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\BakeShell.php(273): Bake\Shell\Task\ModelTask->main('SteetActivites')
+#9 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('SteetActivites', 0)
+#10 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\bake\src\Shell\BakeShell.php(274): Cake\Collection\Collection->each(Object(Closure))
+#11 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('steet_activites')
+#12 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\CommandRunner.php(342): Cake\Console\Shell->runCommand(Array, true)
+#13 D:\xampp\htdocs\CRMAdministrator\vendor\cakephp\cakephp\src\Console\CommandRunner.php(164): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#14 D:\xampp\htdocs\CRMAdministrator\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#15 {main}
+
+

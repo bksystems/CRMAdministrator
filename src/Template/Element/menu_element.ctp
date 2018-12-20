@@ -8,6 +8,19 @@
       <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></li>
       <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
       <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+     
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Gestión de actividades
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <?= $this->Html->link(__('Actividad en campo'), ['action' => 'index',  'controller' => 'TblSysOrganizations'],['class' => 'dropdown-item small']) ?>
+          <?= $this->Html->link(__('Accesos'), ['action' => 'index',  'controller' => 'TblSysOrganizationLevelTypes'],['class' => 'dropdown-item small']) ?>
+          <div class="dropdown-divider">a</div>
+          <?= $this->Html->link(__('Dispositivos'), ['action' => 'index',  'controller' => 'TblSysEmployees'],['class' => 'dropdown-item small']) ?>
+          <?= $this->Html->link(__('Tablas'), ['action' => 'index',  'controller' => 'TblSysEmployeePositionTypes'],['class' => 'dropdown-item small']) ?>
+        </div>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administración</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -43,16 +56,16 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-       
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <!--<?=  $this->request->session()->read('Auth.User')['employee_id'];?>-->
           <?php print_r($employee_login->full_name); ?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <?= $this->Html->link(__('Bitacora'), ['action' => 'index',  'controller' => 'TblSysOrganizations'],['class' => 'dropdown-item small']) ?>
-          <?= $this->Html->link(__('Accesos'), ['action' => 'index',  'controller' => 'TblSysOrganizationLevelTypes'],['class' => 'dropdown-item']) ?>
+          <?= $this->Html->link(__('Accesos'), ['action' => 'index',  'controller' => 'TblSysOrganizationLevelTypes'],['class' => 'dropdown-item small']) ?>
           <div class="dropdown-divider">a</div>
-          <?= $this->Html->link(__('Dispositivos'), ['action' => 'index',  'controller' => 'TblSysEmployees'],['class' => 'dropdown-item']) ?>
+          <?= $this->Html->link(__('Dispositivo movil'), ['action' => 'change_number',  'controller' => 'Movile'],['class' => 'dropdown-item small']) ?>
+          <?= $this->Html->link(__('Cambiar contraseña'), ['action' => 'change_password',  'controller' => 'Users'],['class' => 'dropdown-item small']) ?>
           <?= $this->Html->link(__('Cerrar sesión'), ['action' => 'logout',  'controller' => 'Users'],['class' => 'dropdown-item small']) ?>
         </div>
       </li>
